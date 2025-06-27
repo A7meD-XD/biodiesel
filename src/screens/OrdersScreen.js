@@ -132,7 +132,6 @@ export default function OrdersScreen() {
   };
 
   const closeMenu = () => {
-    // Add a small delay to allow menu actions to be pressed
     menuTimeoutRef.current = setTimeout(() => {
       setActiveMenu(null);
     }, 100);

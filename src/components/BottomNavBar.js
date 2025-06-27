@@ -21,7 +21,7 @@ const BottomNavBar = ({ state, descriptors, navigation }) => {
     tabs.map(() => new Animated.Value(0))
   , [tabs]);
 
-  // احتساب ارتفاع الشاشة لتحديد موضع النافبار
+ 
   const screenHeight = Dimensions.get('window').height;
   const navBarHeight = 45;
   const bottomPadding = Platform.OS === 'android' ? 20 : 0;
@@ -111,17 +111,17 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 25,
     elevation: 15,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: -3 }, // قللنا ارتفاع الظل
+    shadowOffset: { width: 0, height: -3 }, 
     shadowOpacity: 0.2,
-    shadowRadius: 6, // قللنا انتشار الظل
-    paddingBottom: Platform.OS === 'android' ? 15 : 0, // قللنا المساحة الإضافية
-    height: 75, // قللنا الارتفاع الكلي من 100 إلى 75
+    shadowRadius: 6, 
+    paddingBottom: Platform.OS === 'android' ? 15 : 0, 
+    height: 75, 
   },
   navBarContent: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 75, // قللنا ارتفاع المحتوى من 100 إلى 75
+    height: 75, 
     paddingHorizontal: 10,
   },
   tabButton: {
@@ -133,29 +133,29 @@ const styles = StyleSheet.create({
   iconWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
-    width: 50, // قللنا من 60 إلى 50
-    height: 50, // قللنا من 60 إلى 50
-    borderRadius: 25, // نصف القطر الجديد = نصف العرض/الارتفاع
+    width: 50, 
+    height: 50, 
+    borderRadius: 25, 
   },
   activeTab: {
     backgroundColor: '#FFFFFF',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 3 }, // قللنا ارتفاع الظل
+    shadowOffset: { width: 0, height: 3 }, 
     shadowOpacity: 0.3,
-    shadowRadius: 5, // قللنا انتشار الظل
-    elevation: 8, // قللنا ارتفاع الظل للأندرويد
+    shadowRadius: 5, 
+    elevation: 8, 
     borderWidth: 1,
     borderColor: 'rgba(0,0,0,0.1)',
   },
   blackCircle: {
     position: 'absolute',
-    width: 58, // قللنا من 72 إلى 58
-    height: 58, // قللنا من 72 إلى 58
-    borderRadius: 29, // نصف القطر الجديد
+    width: 58, 
+    height: 58, 
+    borderRadius: 29, 
     backgroundColor: '#000000',
     zIndex: -1,
-    top: -4, // عدلنا الموضع
-    left: -4, // عدلنا الموضع
+    top: -4, 
+    left: -4, 
   },
   whiteBorder: {
     position: 'absolute',
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
     left: -10.5,
   },
   icon: {
-    width: 22, // قللنا من 25 إلى 22
-    height: 22, // قللنا من 25 إلى 22
+    width: 22, 
+    height: 22, 
   },
 });
 

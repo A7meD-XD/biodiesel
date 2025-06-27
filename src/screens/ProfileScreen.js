@@ -1,4 +1,3 @@
-// ProfileScreen.js
 import React, { useState } from 'react';
 import {
   View,
@@ -25,7 +24,7 @@ const INITIAL_DATA = {
 export default function ProfileScreen({ navigation }) {
   const [photoUri, setPhotoUri] = useState('https://randomuser.me/api/portraits/men/41.jpg');
   const [data, setData] = useState(INITIAL_DATA);
-  const [editField, setEditField] = useState(null); // null or key of field
+  const [editField, setEditField] = useState(null); 
   const [tempValue, setTempValue] = useState('');
 
   // فتح الـ image picker
@@ -44,20 +43,17 @@ export default function ProfileScreen({ navigation }) {
     }
   };
 
-  // حفظ التعديل
   const saveEdit = () => {
     setData(prev => ({ ...prev, [editField]: tempValue }));
     setEditField(null);
     setTempValue('');
   };
 
-  // إلغاء التعديل
   const cancelEdit = () => {
     setEditField(null);
     setTempValue('');
   };
 
-  // صفوف المعلومات مع إعداداتها
   const fields = [
     { key: 'fullName', icon: 'person', label: 'Full Name' },
     { key: 'password', icon: 'visibility', label: 'Password' },
@@ -67,7 +63,6 @@ export default function ProfileScreen({ navigation }) {
     { key: 'location', icon: 'location-on', label: 'Location' },
   ];
 
-  // دالة لرندر صف واحد إما Text أو TextInput مع أزرار حفظ/إلغاء
   const renderRow = ({ key, icon }) => {
     const isEditing = editField === key;
     return (
@@ -167,120 +162,119 @@ export default function ProfileScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: { 
     flex: 1, 
-    backgroundColor: '#f5f5f5' // خلفية عامة للشاشة
+    backgroundColor: '#f5f5f5' 
   },
   header: {
-    backgroundColor: '#1FAF38', // لون خلفية الهيدر (أخضر)
-    alignItems: 'center', // توسيط العناصر أفقيًا
-    paddingTop: 50, // تباعد علوي للهيدر
-    paddingBottom: 10, // تباعد سفلي للهيدر
-    borderBottomLeftRadius: 160, // تدوير الزوايا السفلية
-    borderBottomRightRadius: 160, // شكل نصف دائري
-    position: 'relative', // لتحديد مكان الأزرار المطلقة
+    backgroundColor: '#1FAF38', 
+    alignItems: 'center', 
+    paddingTop: 50, 
+    paddingBottom: 10, 
+    borderBottomLeftRadius: 160, 
+    borderBottomRightRadius: 160, 
+    position: 'relative', 
   },
   backBtn: { 
-    position: 'absolute', // زر العودة ثابت في مكانه
+    position: 'absolute', 
     top: 50, 
     left: 20 
   },
   settingsBtn: { 
-    position: 'absolute', // زر الإعدادات ثابت
+    position: 'absolute', 
     top: 50, 
     right: 20 
   },
   name: {
     fontSize: 20,
-    color: '#fff', // اسم المستخدم باللون الأبيض
+    color: '#fff', 
     fontWeight: 'bold',
-    marginTop: 80, // تباعد كبير من الأعلى لترك مساحة للصورة
+    marginTop: 80, 
   },
   job: { 
     fontSize: 14, 
-    color: '#e0ffe0' // لون باهت للمهنة
+    color: '#e0ffe0' 
   },
   avatarWrapper: {
-    position: 'absolute', // مغلف الصورة مطلق
-    top: '70%', // تحديد موقع رأسي
-    transform: [{ translateY: -40 }], // رفع الصورة للأعلى
-    backgroundColor: '#fff', // خلفية بيضاء للصورة
-    borderRadius: 50, // تدوير الخلفية
-    padding: 2, // تباعد داخلي بسيط
+    position: 'absolute', 
+    top: '70%', 
+    transform: [{ translateY: -40 }], 
+    backgroundColor: '#fff', 
+    borderRadius: 50, 
+    padding: 2, 
   },
   avatar: { 
     width: 80, 
     height: 80, 
-    borderRadius: 40 // جعل الصورة دائرية
+    borderRadius: 40 
   },
   editAvatar: {
-    position: 'absolute', // زر تعديل الصورة داخل الدائرة
+    position: 'absolute', 
     bottom: 0,
     right: 0,
-    backgroundColor: '#00b300', // لون أخضر
-    borderRadius: 10, // تدوير الزوايا
-    padding: 3, // تباعد داخلي
+    backgroundColor: '#00b300', 
+    borderRadius: 10, 
+    padding: 3, 
   },
   infoSection: { 
-    marginTop: 60, // تباعد كبير من الأعلى (لإفساح مجال للصورة)
-    paddingHorizontal: 25 // تباعد جانبي
+    marginTop: 60, 
+    paddingHorizontal: 25 
   },
   infoRow: {
-    backgroundColor: '#fff', // خلفية بيضاء لكل صف
-    padding: 12, // تباعد داخلي
-    marginBottom: 12, // تباعد بين الصفوف
-    borderRadius: 12, // تدوير زوايا الصف
-    flexDirection: 'row', // توزيع العناصر أفقيًا
-    justifyContent: 'space-between', // مسافة بين العناصر
-    alignItems: 'center', // توسيط عمودي
-    elevation: 2, // ظل خفيف (لأندرويد)
-    // للـ iOS نضيف ظلًا بديلاً:
+    backgroundColor: '#fff', 
+    padding: 12, 
+    marginBottom: 12, 
+    borderRadius: 12, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    elevation: 2, 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
   },
   rowLeft: { 
-    flexDirection: 'row', // العناصر جنبًا إلى جنب
-    alignItems: 'center', // توسيط عمودي
-    gap: 10 // مسافة بين الأيقونة والنص
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    gap: 10 
   },
   infoText: { 
     fontSize: 16, 
-    color: '#444' // لون نص غامق
+    color: '#444' 
   },
   input: {
-    flex: 1, // يأخذ كل المساحة المتاحة
-    paddingVertical: 0, // إزالة التباعد الرأسي
-    borderBottomWidth: 1, // خط سفلي
-    borderColor: '#ccc' // لون الخط
+    flex: 1, 
+    paddingVertical: 0, 
+    borderBottomWidth: 1, 
+    borderColor: '#ccc' 
   },
   rowActions: { 
-    flexDirection: 'row' // الأزرار في خط أفقي
+    flexDirection: 'row' 
   },
   actionBtn: { 
-    marginLeft: -35, // تقليل المسافة بين الأزرار نفسها
-    padding: 4, // جعل الأزرار أصغر
-    borderRadius: 6, // تدوير الزوايا
+    marginLeft: -35, 
+    padding: 4, 
+    borderRadius: 6, 
   },
   buttons: {
-    flexDirection: 'row', // الأزرار في صف واحد
-    justifyContent: 'space-between', // توزيع المساحة بينها
-    paddingHorizontal: 25, // تباعد جانبي
-    marginTop: 20, // تباعد علوي
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    paddingHorizontal: 25, 
+    marginTop: 20, 
   },
   supportBtn: {
-    backgroundColor: '#00b300', // لون أخضر
+    backgroundColor: '#00b300', 
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
   },
   logoutBtn: {
-    backgroundColor: '#e53935', // لون أحمر
+    backgroundColor: '#e53935', 
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 10,
   },
   btnText: { 
-    color: '#fff', // نص الأزرار أبيض
+    color: '#fff', 
     fontSize: 16 
   },
 });
