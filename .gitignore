@@ -1,0 +1,18 @@
+# Node & Expo
+node_modules/
+.expo/
+.expo-shared/
+dist/
+web-build/
+
+# بيئات التشغيل
+.env
+*.env.local
+
+# أنظمة التشغيل
+.DS_Store
+Thumbs.db
+
+# Android/iOS
+android/app/build/
+ios/build/
